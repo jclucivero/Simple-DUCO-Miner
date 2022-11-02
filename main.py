@@ -83,6 +83,11 @@ class Miner:
         elif server_msg == "BAD":
           invalid += 1
         os.system("clear")
+      elif job=="":
+        connection.close()
+        connection.connect((pool['ip'], pool['port']))
+        Client.send(connection, "")
+        os.system("clear")
       print(f"Grantrocks Python Miner V0.1\n" +
             f"Accepted Shares: {accepted}\n" + f"Blocks Found: {blocks}\n" +
             f"Invalid Shares: {invalid}\n" + f"Hashrate: {result[1]}H/s")
